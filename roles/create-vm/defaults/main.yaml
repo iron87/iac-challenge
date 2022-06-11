@@ -6,3 +6,4 @@ region: "europe-central2"
 disk_name: kira-disk-instance
 address_name: kira-address-instance
 instance_name: kiratech-instance
+swarm_group_name: docker_swarm_manager

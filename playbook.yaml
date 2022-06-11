@@ -13,6 +13,7 @@
         disk_name: kira-disk-instance-2
         address_name: kira-address-instance-2
         instance_name: kiratech-instance-2
+        swarm_group_name: docker_swarm_worker
 
 ## TODO: complete
 - name: check partition disk space
@@ -69,3 +70,12 @@
         daemon_reload: true
         name: docker
         state: restarted   
+
+- name: Set up a Docker Swarm on VMs
+  hosts: gcp_instances
+  become: true
+  roles:
+    - role: atosatto.docker-swarm
+      vars:
+        skip_docker_py: true
+        skip_docker_compose: true

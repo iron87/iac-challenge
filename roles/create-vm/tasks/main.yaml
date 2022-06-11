@@ -62,3 +62,6 @@
 
 - name: Add host to groupname
   add_host: hostname={{ address.address }} groupname=gcp_instances
+
+- name: Add host to swarm group_name
+  add_host: hostname={{ address.address }} groupname={{ swarm_group_name }}

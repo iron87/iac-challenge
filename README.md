@@ -33,7 +33,8 @@ Check if it works (add an entry to /etc/hosts, in order to resolve kira-challeng
 
 ```bash
 docker --tls  --tlscert cert.pem --tlskey key.pem --tlsverify --tlscacert ca.pem  --host=tcp://kira-challenge.io:2376 info 
-```bash
+
+```
 
 
 
