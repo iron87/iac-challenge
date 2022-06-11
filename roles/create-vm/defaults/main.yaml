@@ -1,0 +1,8 @@
+gcp_project: challenge-352805
+gcp_cred_kind: serviceaccount
+gcp_cred_file: /Users/federicocerruto/Downloads/challenge-352805-22d7c9a185d1.json
+zone: "europe-central2-a"
+region: "europe-central2"
+disk_name: kira-disk-instance
+address_name: kira-address-instance
+instance_name: kiratech-instance

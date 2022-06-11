@@ -1,0 +1,6 @@
+all:
+  children:
+    gcp_instances:
+      vars:
+        ansible_ssh_user: fede.cerruto
+        ansible_ssh_private_key_file: /Users/federicocerruto/.ssh/kira-challenge

@@ -60,11 +60,21 @@
      wait_for: host={{ address.address }} port=22 delay=10 timeout=60
 
    - name: Add host to groupname
-     add_host: hostname={{ address.address }} groupname=new_instances ansible_ssh_user=fede.cerruto ansible_ssh_private_key_file=/Users/federicocerruto/.ssh/kira-challenge
+     add_host: hostname={{ address.address }} groupname=gcp_instances 
 
 
-- name: Install docker and docker-compose
-  hosts: new_instances
-  become: true
-  roles:
-    - geerlingguy.docker
+- name: check partition disk space
+  hosts: gcp_instances
+  tasks: 
+    - community.general.parted: device=/dev/sda2 unit=MiB
+      become: true
+      register: sda2_info
+    - name: Print sda2_info
+      debug:
+        var: sda2_info
+
+#- name: Install docker and docker-compose
+#  hosts: gcp_instances
+#  become: true
+# roles:
+#    - geerlingguy.docker

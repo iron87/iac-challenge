@@ -1,0 +1,39 @@
+- name: Create instance 1
+  hosts: localhost
+  gather_facts: false
+  roles: 
+    - create-vm
+
+- name: Create instance 2
+  hosts: localhost
+  gather_facts: false
+  roles: 
+    - role: create-vm
+      vars:
+        disk_name: kira-disk-instance-2
+        address_name: kira-address-instance-2
+        instance_name: kiratech-instance-2
+
+## TODO: complete
+- name: check partition disk space
+  hosts: gcp_instances
+  tags:
+         - check-partition 
+  tasks:
+    - community.general.parted: device=/dev/sda2 unit=MiB
+      become: true
+      register: sda2_info
+    - name: Print sda2_info
+      debug:
+        var: sda2_info
+
+- name: Install docker and docker-compose
+  hosts: gcp_instances
+  become: true
+  roles:
+    - role: geerlingguy.docker
+      vars:
+        docker_daemon_options:
+          tls: false
+          hosts: ["tcp://0.0.0.0:2376"]
+    
