@@ -21,11 +21,11 @@ For this requirement I used an existing role (available on galaxy) geerlingguy.d
 
 ## Securing Docker Api
 
-Use the **generate-cert.sh** to generate the certificates, then copy them to the **docker-cert** dir
+Use the `generate-cert.sh` to generate the certificates, then copy them to the `docker-cert` dir
 
-I tried to configure the geerlingguy.docker using the **docker_daemon_options** var but there is an issue (https://github.com/geerlingguy/ansible-role-docker/pull/348) releated to this configuration.
+I tried to configure the geerlingguy.docker using the `docker_daemon_options` var but there is an issue (https://github.com/geerlingguy/ansible-role-docker/pull/348) releated to this configuration.
 
-Then I need to create a new role **name** 
+Then I need to create a new role **TBD** 
 
 
 
@@ -36,8 +36,15 @@ docker --tls  --tlscert cert.pem --tlskey key.pem --tlsverify --tlscacert ca.pem
 
 ```
 
+## Install Swarm
 
 
+
+
+### Verify Swarm connection 
+```bash
+ docker --tls  --tlscert cert.pem --tlskey key.pem --tlsverify --tlscacert ca.pem  --host=tcp://kira-challenge.io:2376 service create --replicas 3 -p 80:80 --name nginx nginx
+```
 
 1. ansible-galaxy install -r requirements.yaml
 
