@@ -1,3 +1,5 @@
+collections:
+- name: google.cloud
 roles:
 - name: geerlingguy.docker
 - name: atosatto.docker-swarm
