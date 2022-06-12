@@ -46,5 +46,5 @@ docker --tls  --tlscert cert.pem --tlskey key.pem --tlsverify --tlscacert ca.pem
  docker --tls  --tlscert cert.pem --tlskey key.pem --tlsverify --tlscacert ca.pem  --host=tcp://kira-challenge.io:2376 service create --replicas 3 -p 80:80 --name nginx nginx
 ```
 
-1. ansible-galaxy install -r requirements.yaml
+1. ansible-galaxy install -r requirements.yml
 
