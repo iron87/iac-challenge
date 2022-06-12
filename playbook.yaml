@@ -2,13 +2,13 @@
   hosts: localhost
   gather_facts: false
   roles: 
-    - create-vm
+    - create_vm
 
 - name: Create instance 2
   hosts: localhost
   gather_facts: false
   roles:
-    - role: create-vm
+    - role: create_vm
       vars:
         disk_name: kira-disk-instance-2
         address_name: kira-address-instance-2
@@ -43,7 +43,7 @@
   hosts: gcp_instances
   become: true
   roles:
-    - role: secure-docker-api
+    - role: secure_docker_api
 
 - name: Set up a Docker Swarm on VMs
   hosts: gcp_instances

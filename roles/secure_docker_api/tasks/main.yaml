@@ -1,0 +1,28 @@
+- name: Copy certificates on docker server
+  copy:
+    src: docker-cert/
+    dest: /etc/docker/
+    owner: root
+    mode: 0644
+
+- block:
+    - name: change systemd dir permission
+      file:
+        path: /etc/systemd/system/docker.service.d
+        owner: root
+        group: root
+        mode: 0755
+        state: directory
+
+    - name: override systemd config
+      copy:
+        src: systemd-override.conf
+        dest: /etc/systemd/system/docker.service.d/override.conf
+        owner: root
+        group: root
+        mode: 0644
+    - name: restart daemon
+      systemd:
+        daemon_reload: true
+        name: docker
+        state: restarted
