@@ -1,5 +1,5 @@
 - name: Copy certificates on docker server
-  copy:
+  ansible.builtin.copy:
     src: docker-cert/
     dest: /etc/docker/
     owner: root
@@ -8,7 +8,7 @@
 - name: Customize systemd
   block:
     - name: change systemd dir permission
-      file:
+      ansible.builtin.file:
         path: /etc/systemd/system/docker.service.d
         owner: root
         group: root
@@ -16,14 +16,14 @@
         state: directory
 
     - name: override systemd config
-      copy:
+      ansible.builtin.copy:
         src: systemd-override.conf
         dest: /etc/systemd/system/docker.service.d/override.conf
         owner: root
         group: root
         mode: 0644
     - name: restart daemon
-      systemd:
+      ansible.builtin.systemd:
         daemon_reload: true
         name: docker
         state: restarted

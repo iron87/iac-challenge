@@ -58,10 +58,10 @@
     state: present
 
 - name: Wait for SSH to come up
-  wait_for: host={{ address.address }} port=22 delay=10 timeout=60
+  ansible.builtin.wait_for: host={{ address.address }} port=22 delay=10 timeout=60
 
 - name: Add host to groupname
-  add_host: hostname={{ address.address }} groupname=gcp_instances
+  ansible.builtin.add_host: hostname={{ address.address }} groupname=gcp_instances
 
 - name: Add host to swarm group_name
-  add_host: hostname={{ address.address }} groupname={{ swarm_group_name }}
+  ansible.builtin.add_host: hostname={{ address.address }} groupname={{ swarm_group_name }}

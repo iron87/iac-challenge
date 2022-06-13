@@ -19,7 +19,7 @@
 - name: check partition disk space
   hosts: gcp_instances
   tags:
-     - check-partition
+    - check-partition
   tasks:
     - name: Get device info
       community.general.parted: device=/dev/sda2 unit=MiB
