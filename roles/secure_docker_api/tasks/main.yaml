@@ -5,7 +5,8 @@
     owner: root
     mode: 0644
 
-- block:
+- name: Customize systemd
+  block:
     - name: change systemd dir permission
       file:
         path: /etc/systemd/system/docker.service.d

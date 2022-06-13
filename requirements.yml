@@ -1,8 +1,8 @@
 collections:
-- name: google.cloud
-- name: community.general
+  - name: google.cloud
+  - name: community.general
 roles:
-- name: geerlingguy.docker
-- name: atosatto.docker-swarm
-  #I had to use this version because the 2.3.0 introduces a bug
-  version: v2.2.0
+  - name: geerlingguy.docker
+  - name: atosatto.docker-swarm
+    # I had to use this version because the 2.3.0 introduces a bug
+    version: v2.2.0
