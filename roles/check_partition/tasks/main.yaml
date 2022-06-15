@@ -4,20 +4,18 @@
 #   register: device_info
 
 # - name: "Check sda2 partition size"
-#   set_fact: need_resize={{ device_info.partitions[1].size <  min_partition_size  }} 
-  
+#   set_fact: need_resize={{ device_info.partitions[1].size <  min_partition_size  }}
+
 # - name: Fail when partition size is less than min_partition_size
 #   fail:
 #     msg: The partition has less than {{ min_partition_size }} free space
 #   when: need_resize
 
-
-
 - name: Retrieve root mount information
   ansible.builtin.set_fact: root_available_size="{{ (ansible_mounts|selectattr("mount", "equalto", "/")|list)[0].size_available }}"
 
 - name: test
-  ansible.builtin.debug: 
+  ansible.builtin.debug:
     var: root_available_size
 
 - name: Check if there is enough space
