@@ -15,19 +15,11 @@
         instance_name: kiratech-instance-2
         swarm_group_name: docker_swarm_worker
 
-## TODO: complete
-- name: check partition disk space
+- name: Check partition space
   hosts: gcp_instances
-  tags:
-    - check-partition
-  tasks:
-    - name: Get device info
-      community.general.parted: device=/dev/sda2 unit=MiB
-      become: true
-      register: sda2_info
-    - name: Print sda2_info
-      debug:
-        var: sda2_info
+  become: true
+  roles: 
+    - check_partition
 
 - name: Install docker and docker-compose
   hosts: gcp_instances
