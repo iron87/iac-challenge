@@ -1,6 +1,6 @@
 - name: Copy certificates on docker server
   ansible.builtin.copy:
-    src: docker-cert/
+    src: "{{ docker_cert_local_dir }}"
     dest: /etc/docker/
     owner: root
     mode: 0644

@@ -1,0 +1,3 @@
+gcp_project: challenge-352805
+gcp_cred_kind: serviceaccount
+docker_cert_local_dir: docker-cert/

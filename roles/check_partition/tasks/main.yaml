@@ -14,10 +14,12 @@
 - name: Retrieve root mount information
   ansible.builtin.set_fact: root_available_size="{{ (ansible_mounts|selectattr("mount", "equalto", "/")|list)[0].size_available }}"
 
-- name: test
-  ansible.builtin.debug:
+- name: print 
+  debug:
     var: root_available_size
 
-- name: Check if there is enough space
-  ansible.builtin.assert:
-    that: (root_available_size|float / 1000000000 |  round(1,'common')) > min_partition_size
+- name: Retrieve root mount information
+  ansible.builtin.set_fact: need_resize="{{ (root_available_size|float / 1000000000 |  round(1,'common')) < min_partition_size }}"
+  failed_when: need_resize
+
+

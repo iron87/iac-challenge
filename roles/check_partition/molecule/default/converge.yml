@@ -1,0 +1,8 @@
+- name: Converge
+  hosts: all
+  vars:
+    min_partition_size: 30
+  tasks:
+    - name: "Include check_partition"
+      include_role:
+        name: "check_partition"

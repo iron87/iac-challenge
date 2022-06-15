@@ -1,0 +1,15 @@
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+platforms:
+  - name: testinstance
+    box: centos/7
+    config_options:
+      disksize.size: "40GB"
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
