@@ -13,7 +13,7 @@ Below the main steps:
 2. install gcloud sdk
 3. create a service account on you project
 4. download the key and
-5. Create an ssh-key and add it on GCP (Compute Engine->Settings->Metadata). Set the value of **ansible_ssh_private_key_file** with your private key path
+5. Create an ssh-key and add it on GCP (Compute Engine->Settings->Metadata). Set the value of `ansible_ssh_private_key_file` (in inventory.yaml) with your private key path
 
 I created a custom role for this: create-vm
 
