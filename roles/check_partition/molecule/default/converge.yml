@@ -4,5 +4,5 @@
     min_partition_size: 30
   tasks:
     - name: "Include check_partition"
-      include_role:
+      ansible.builtin.include_role:
         name: "check_partition"

@@ -2,5 +2,5 @@
   hosts: all
   tasks:
   - name: Verify need_resize value is false
-    assert:
+    ansible.builtin.assert:
       that: ansible_facts['need_resize']
