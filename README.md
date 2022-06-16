@@ -12,8 +12,8 @@ Below the main steps:
 1. pip install requests google-auth
 2. install gcloud sdk
 3. create a service account on you project
-4. download the key.
-5. create an ssh-key and add it on GCP (Compute Engine->Settings->Metadata)
+4. download the key and
+5. Create an ssh-key and add it on GCP (Compute Engine->Settings->Metadata). Set the value of **ansible_ssh_private_key_file** with your private key path
 
 I created a custom role for this: create-vm
 
